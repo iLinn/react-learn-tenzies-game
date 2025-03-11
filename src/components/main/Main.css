@@ -1,0 +1,25 @@
+main {
+    background-image: url('src/assets/react.svg');
+    background-repeat: no-repeat;
+    background-position-x: 200%;
+    background-position-y: center;
+    background-size: 30rem;
+}
+
+@media screen and (min-width: 768px) {
+    main {
+        background-position-x: 160%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    main {
+        background-position-x: 125%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    main {
+        background-position-x: 115%;
+    }
+}
