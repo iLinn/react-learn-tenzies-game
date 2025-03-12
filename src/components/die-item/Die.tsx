@@ -1,8 +1,17 @@
 import './Die.css';
 
-export default function Die({ name }: { name: string }) {
+interface DieInterface {
+  name: string;
+  isHeld: boolean;
+  holdDice: (id: string) => void;
+  id: string;
+}
+
+export default function Die({ name, isHeld, holdDice, id }: DieInterface) {
   const buttonName = name || '#';
+  const isButtonHeldClass = isHeld ? 'btn-held' : '';
   return (
-    <button className='mat-button dies'>{buttonName}</button>
+    <button className={`mat-button dies ${isButtonHeldClass}`}
+      onClick={() => holdDice(id)}>{buttonName}</button>
   );
 }
