@@ -1,15 +1,10 @@
 main {
-    /* background-image: url('src/assets/react.svg');
-    background-repeat: no-repeat;
-    background-position-x: 200%;
-    background-position-y: center;
-    background-size: 30rem; */
-
     margin: 3rem;
     padding: 2rem;
     border-radius: 10px;
     color: #213547;
     background-color: #ffffff;
+    justify-content: space-around;
 
     max-width: 500px;
     height: 500px;
@@ -23,21 +18,3 @@ main {
         }
     }
 }
-
-/* @media screen and (min-width: 768px) {
-    main {
-        background-position-x: 160%;
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    main {
-        background-position-x: 125%;
-    }
-}
-
-@media screen and (min-width: 1400px) {
-    main {
-        background-position-x: 115%;
-    }
-} */
