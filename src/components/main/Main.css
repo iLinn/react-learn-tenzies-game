@@ -4,6 +4,15 @@ main {
     background-position-x: 200%;
     background-position-y: center;
     background-size: 30rem;
+
+    margin: 3rem;
+    padding: 2rem;
+    border-radius: 10px;
+    color: #213547;
+    background-color: #ffffff;
+
+    max-width: 500px;
+    height: 500px;
 }
 
 @media screen and (min-width: 768px) {
