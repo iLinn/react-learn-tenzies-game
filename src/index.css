@@ -10,6 +10,7 @@ body {
   margin: 0;
   color-scheme: light dark;
   background-color: #242424;
+  font-family: Karla, sans-serif;
 }
 
 body,
@@ -46,6 +47,10 @@ body,
   gap: 1rem;
 }
 
+.centered {
+  text-align: center;
+}
+
 .btn-orange {
   background-color: #FF9800; /* Orange color */
   color: white;
@@ -64,12 +69,34 @@ body,
   }
 }
 
+.mat-button.btn-primary {
+  background-color: #646cff;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  text-transform: capitalize;
+
+  &:hover {
+    background-color: #4851fd; /* Darker on hover */
+  }
+
+  &:active {
+    background-color: #303af8; /* Even darker on click */
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 0px 3px #787ffd8b;
+  }
+}
+
 .mat-button {
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   font-weight: 500;
+  font-family: Inter, sans-serif;
   text-transform: uppercase;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;

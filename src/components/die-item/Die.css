@@ -1,5 +1,6 @@
 .die-container {
-  button {
+  .dies {
+    border-radius: 10px;
     padding: 1rem 1rem;
     font-size: 1.6rem;
     height: 60px;

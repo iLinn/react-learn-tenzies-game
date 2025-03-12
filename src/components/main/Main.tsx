@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import Die from '../die-item/Die';
 import './Main.css';
 
 function MainContent() {
-  const diesNumbers = fillArrayWithRandomNumbers(10);
-  const dies = diesNumbers.map((itemNumber, index) => (
+  const [ diceNumbers, setDiceNumbers ] = useState(fillArrayWithRandomNumbers(10));
+
+  const diceElements = diceNumbers.map((itemNumber, index) => (
     <Die key={`${index}-${itemNumber}`}
       name={`${itemNumber}`}
     />
@@ -12,18 +14,26 @@ function MainContent() {
   function fillArrayWithRandomNumbers(length: number): number[] {
     const array = [];
     for (let i = 0; i < length; i++) {
-        array.push(Math.floor(Math.random() * 6) + 1);
+        array.push(Math.ceil(Math.random() * 6));
     }
     return array;
-}
+  }
+
+  function rerollDice() {
+    setDiceNumbers(fillArrayWithRandomNumbers(10));
+  }
 
   return (
     <main className='flex-grow-1'>
-      <div className="centered">
-        <h1>Tenzies game</h1>
+      <div>
+        <h1 className='centered'>Tenzies game</h1>
       </div>
       <div className='grid-container die-container'>
-        {dies}
+        {diceElements}
+      </div>
+      <div className="button-container">
+        <button className='mat-button btn-primary'
+          onClick={rerollDice}>Roll</button>
       </div>
     </main>
   );

@@ -1,9 +1,9 @@
 main {
-    background-image: url('src/assets/react.svg');
+    /* background-image: url('src/assets/react.svg');
     background-repeat: no-repeat;
     background-position-x: 200%;
     background-position-y: center;
-    background-size: 30rem;
+    background-size: 30rem; */
 
     margin: 3rem;
     padding: 2rem;
@@ -13,9 +13,18 @@ main {
 
     max-width: 500px;
     height: 500px;
+
+    .button-container {
+        margin: 2.5rem;
+
+        button {
+            display: block;
+            margin: 0 auto;
+        }
+    }
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
     main {
         background-position-x: 160%;
     }
@@ -31,4 +40,4 @@ main {
     main {
         background-position-x: 115%;
     }
-}
+} */
