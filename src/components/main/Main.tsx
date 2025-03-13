@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Confetti from 'react-confetti'
 import Die from '../die-item/Die';
 import './Main.css';
@@ -10,7 +10,10 @@ export interface DiceStatus {
 }
 
 function MainContent() {
-  const [ diceStatuses, setDiceStatuses ] = useState(prepareDiceCollection(fillArrayWithDiceNumbers(10)));
+  const newGameBtn = useRef(null);
+  const diceCollection = () => prepareDiceCollection(fillArrayWithDiceNumbers(10));
+  const [ diceStatuses, setDiceStatuses ] = useState(diceCollection);
+  const [ diceRolls, setDiceRolls ] = useState(0);
   const width = window.innerWidth;
   const height = window.innerHeight;
 
@@ -25,6 +28,11 @@ function MainContent() {
 
   const isGameWon = diceStatuses.every((diceStatus, index, statuses) => diceStatus.isHeld 
   && diceStatus.value === statuses[0].value);
+
+  useEffect(() => {
+    if (!isGameWon) return;
+    newGameBtn.current?.focus();
+  }, [isGameWon]);
 
   function fillArrayWithDiceNumbers(length: number): number[] {
     const array = [];
@@ -43,10 +51,14 @@ function MainContent() {
   }
 
   function rollDice() {
+    setDiceRolls(0);
     setDiceStatuses(prepareDiceCollection(fillArrayWithDiceNumbers(10)));
   }
 
   function rerollDice() {
+    setDiceRolls(prevCount => {
+      return ++prevCount;
+    });
     setDiceStatuses(prev => prev.map(dieSet => {
       return dieSet.isHeld ? dieSet : {
         ...dieSet,
@@ -56,8 +68,6 @@ function MainContent() {
   }
 
   function hold(id: string) {
-    console.log(id);
-
     setDiceStatuses(prev => prev.map(die => {
       return die.id !== id ? die : {
         ...die,
@@ -75,8 +85,13 @@ function MainContent() {
       <div className='grid-container die-container'>
         {diceElements}
       </div>
+      <div className='centered'
+        aria-live="polite">
+        <p>Your dice roll count: <b>{diceRolls}</b></p>
+      </div>
       <div className='button-container'>
         {isGameWon ? <button className='mat-button btn-primary'
+          ref={newGameBtn}
           onClick={rollDice}>New Game</button>
           : <button className='mat-button btn-primary'
           onClick={rerollDice}>Roll</button>}
@@ -85,6 +100,9 @@ function MainContent() {
         width={width}
         height={height}
       />}
+      <div aria-live="polite" className="sr-only">
+        {isGameWon && <p>Congratulations! You won! Press "New Game" to start again.</p>}
+      </div>
     </main>
   );
 }

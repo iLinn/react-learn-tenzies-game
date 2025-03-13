@@ -10,7 +10,7 @@ main {
     height: 500px;
 
     .button-container {
-        margin: 2.5rem;
+        margin: 1rem 2rem 2rem;
 
         button {
             display: block;
