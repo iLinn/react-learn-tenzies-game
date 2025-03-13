@@ -3,9 +3,6 @@
 
 Roll the dice until all items are the same. Click each die to freeze it at its current value between rolls.
 
-## Dark scheme
-![зображення](https://github.com/user-attachments/assets/f9a842de-64eb-4c86-a8c6-c2ed56710f80)
-
 ## Light scheme
 ### Start game
 <img width="613" alt="зображення" src="https://github.com/user-attachments/assets/6873bbb8-39fa-4bfd-a3b9-1c29f34fefb1" />
@@ -15,6 +12,9 @@ Roll the dice until all items are the same. Click each die to freeze it at its c
 
 ### End game
 <img width="613" alt="зображення" src="https://github.com/user-attachments/assets/6207a894-73ca-43c8-aeb7-36c1b739f772" />
+
+## Dark scheme
+<img width="613" alt="зображення" src="https://github.com/user-attachments/assets/f9a842de-64eb-4c86-a8c6-c2ed56710f80" />
 
 ## Building App
 
