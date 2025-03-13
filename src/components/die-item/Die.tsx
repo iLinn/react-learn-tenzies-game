@@ -8,10 +8,13 @@ interface DieInterface {
 }
 
 export default function Die({ name, isHeld, holdDice, id }: DieInterface) {
-  const buttonName = name || '#';
   const isButtonHeldClass = isHeld ? 'btn-held' : '';
   return (
-    <button className={`mat-button dies ${isButtonHeldClass}`}
-      onClick={() => holdDice(id)}>{buttonName}</button>
+    <button
+      className={`mat-button dice ${isButtonHeldClass}`}
+      aria-pressed={isHeld}
+      aria-label={`The die with value of ${name}, ${isHeld ? 'held' : 'not held'}`}
+      onClick={() => holdDice(id)}
+    >{name}</button>
   );
 }

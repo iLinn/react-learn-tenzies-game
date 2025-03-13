@@ -1,5 +1,7 @@
 .die-container {
-  .dies {
+  margin-bottom: 1rem;
+  
+  .dice {
     border-radius: 10px;
     padding: 1rem 1rem;
     font-size: 1.6rem;
